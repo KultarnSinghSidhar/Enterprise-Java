@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+/* Combined styles for About, FAQ, and Schedule pages */
+
+.about-container,
+.faq-section,
+.schedule-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: left;
+    color: #444;
+    line-height: 1.6;
+}
+
+.about-container h2,
+.faq-section h2,
+.schedule-container h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* About page */
+.about-container p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.about-container img {
+    display: block;
+    max-width: 200px;
+    border-radius: 50%;
+    margin: 0 auto 30px auto;
+    border: 3px solid #3498db;
+}
+
+/* FAQ page */
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-question {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2980b9;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.faq-answer {
+    font-size: 1rem;
+    color: #555;
+    margin-left: 15px;
+}
+
+/* Schedule page */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 15px 12px;
+    border: 1px solid #ddd;
+}
+
+.schedule-table th {
+    background: #3498db;
+    color: white;
+}
+
+.schedule-table tbody tr:hover {
+    background-color: #f0f8ff;
+    cursor: default;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .about-container,
+    .faq-section,
+    .schedule-container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 10px 8px;
+    }
+}

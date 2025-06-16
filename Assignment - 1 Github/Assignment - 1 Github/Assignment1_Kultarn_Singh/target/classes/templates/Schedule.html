@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Schedule - Anime Event 2025</title>
+    <link rel="stylesheet" th:href="@{/Css/style.css}" />
+</head>
+<body>
+
+<header>
+    <h1>Event Schedule</h1>
+</header>
+
+<nav>
+    <a th:href="@{/}">🏠 Home</a>
+    <a th:href="@{/register}">🎟️ Register Ticket</a>
+    <a th:href="@{/view-tickets}">🎫 View Tickets</a>
+    <a th:href="@{/about}">ℹ️ About</a>
+    <a th:href="@{/schedule}">📅 Schedule</a>
+    <a th:href="@{/faq}">❓ FAQ</a>
+    <a href="#footer-container">📞 Contact</a>
+</nav>
+
+<main>
+    <div class="about-container">
+        <section>
+            <h2>Day 1 - Friday</h2>
+            <ul>
+                <li>10:00 AM - Opening Ceremony (Main Stage)</li>
+                <li>11:30 AM - Voice Actor Q&amp;A (Panel Room 1)</li>
+                <li>1:00 PM - Manga Drawing Workshop (Workshop Room A)</li>
+                <li>3:00 PM - Indie Game Demos (Gaming Hall)</li>
+                <li>7:00 PM - Anime Karaoke Night (Community Stage)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Day 2 - Saturday</h2>
+            <ul>
+                <li>10:00 AM - Cosplay Parade (Main Stage)</li>
+                <li>12:00 PM - AMV Contest (Screening Room)</li>
+                <li>2:00 PM - Anime Trivia Showdown (Panel Room 2)</li>
+                <li>4:00 PM - World Cosplay Championship Qualifiers (Main Stage)</li>
+                <li>8:00 PM - Dance Party (Ballroom)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Day 3 - Sunday</h2>
+            <ul>
+                <li>10:00 AM - Meet the Creators: Anime Studios (Panel Room 3)</li>
+                <li>12:00 PM - Charity Auction (Main Stage)</li>
+                <li>3:00 PM - Closing Ceremony (Main Stage)</li>
+            </ul>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-container" id="footer-container">
+        <div class="footer-location">
+            <h3>Event Location</h3>
+            <p>Anime Hall, 123 Otaku Street, Toronto, ON, Canada</p>
+        </div>
+        <div class="footer-contact">
+            <h3>Get In Touch</h3>
+            <p>Email: <a href="mailto:info@animeevent2025.com">info@animeevent2025.com</a></p>
+            <p>Phone: <a href="tel:+14372622741">+1 437-262-2741</a></p>
+            <p>Follow us on <a href="#">Instagram</a> | <a href="#">Twitter</a> | <a href="#">TikTok</a></p>
+        </div>
+    </div>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.5395175191474!2d-79.38393468450653!3d43.65348167912179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d8c65ae1f5%3A0x8e9b2f6e3348f487!2sToronto!5e0!3m2!1sen!2sca!4v1716226754409" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+    <p>&copy; 2025 Anime Event — Powered by Kultarn Singh & Japan</p>
+</footer>
+
+</body>
+</html>

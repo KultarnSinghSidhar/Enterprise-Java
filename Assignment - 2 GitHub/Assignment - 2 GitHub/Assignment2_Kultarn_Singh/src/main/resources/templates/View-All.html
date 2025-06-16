@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 All Data Overview</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+<style>
+    main {
+        max-width: 1100px;
+        margin: 2.5rem auto 4rem auto;
+        padding: 0 1rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        color: #2c5aa0;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 2rem;
+        letter-spacing: 0.05em;
+        user-select: none;
+    }
+
+    .toggle-btn {
+        display: inline-block;
+        margin: 1rem 0.8rem 0 0.8rem;
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        border-radius: 10px;
+        background-color: #4a90e2;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        user-select: none;
+    }
+
+    .toggle-btn[style*="background-color: #f0ad4e;"] {
+        background-color: #f0ad4e !important;
+        color: #3c2f00;
+    }
+
+    .data-card {
+    	width: 110%;
+        background: white;
+        border-radius: 14px;
+        padding: 2.4rem;
+        margin-bottom: 2.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        user-select: none;
+        margin-left: -5rem;
+    }
+
+    .data-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .store-name {
+        font-size: 2rem;
+        color: #244a85;
+        margin-bottom: 1.8rem;
+        font-weight: 700;
+    }
+
+    .store-info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.2rem 2.5rem;
+        margin-bottom: 2rem;
+        align-items: center;
+    }
+
+    .info-item {
+        font-size: 1.1rem;
+        color: #444;
+    }
+
+    .info-item strong {
+        color: #2c5aa0;
+        font-weight: 700;
+    }
+
+    .info-item.actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 0.5rem 1.2rem;
+        font-weight: 700;
+        border-radius: 10px;
+        text-decoration: none;
+        user-select: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .edit-btn {
+        background-color: #4a90e2;
+        color: white;
+    }
+
+    .edit-btn:hover {
+        background-color: #357abd;
+    }
+
+    .delete-btn {
+        background-color: #e14c4c;
+        color: white;
+    }
+
+    .delete-btn:hover {
+        background-color: #b73636;
+    }
+
+    details {
+        border-top: 2px solid #244a85;
+        padding-top: 1.2rem;
+        margin-top: 1.4rem;
+        user-select: none;
+    }
+
+    summary {
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #2c5aa0;
+        cursor: pointer;
+        list-style: none;
+        outline: none;
+        padding: 0.5rem 0;
+        transition: color 0.3s ease;
+        user-select: text;
+    }
+
+    summary::before {
+        content: "▶";
+        display: inline-block;
+        margin-right: 0.6rem;
+        transition: transform 0.25s ease;
+    }
+
+    details[open] summary::before {
+        transform: rotate(90deg);
+    }
+
+    .employee-table-container {
+        overflow-x: auto;
+        margin-top: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 3px 15px rgba(44, 90, 160, 0.1);
+    }
+
+    .employee-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1rem;
+        min-width: 720px;
+    }
+
+    .employee-table thead tr {
+        background-color: #244a85;
+        color: white;
+        user-select: none;
+    }
+
+    .employee-table th,
+    .employee-table td {
+        padding: 0.75rem 1.4rem;
+        border: 1px solid #dcdcdc;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .employee-table tbody tr:nth-child(even) {
+        background-color: #f7faff;
+    }
+
+    .employee-table tbody tr:hover {
+        background-color: #d7e8ff;
+    }
+
+    .employee-table .actions {
+        display: flex;
+        gap: 0.7rem;
+        user-select: none;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Anime Store Dashboard</h1>
+    </header>
+
+<nav>
+    <div class="nav-group">
+        <a th:href="@{/employees}">👨‍💼 View Employees</a>
+        <a th:href="@{/stores}">🏬 View Stores</a>
+        <a th:href="@{/view-all}">📊 View All</a>
+        <a th:href="@{/add-store-form}">➕ Add Store</a>
+        <a th:href="@{/add-employee-form}">👨‍💻 Add Employee</a>
+        <a th:href="@{/}">🏠 Home</a>
+        <a href="#footer-container">📞 Contact</a>
+    </div>
+    <div class="nav-group">
+        <a th:href="@{/h2-console}" target="_blank" rel="noopener noreferrer">🛠️ Console</a>
+        <a th:href="@{/test/employee}">🧪 Test Employee</a>
+        <a th:href="@{/test/store}">🧪 Test Store</a>
+        <a th:href="@{/search}">🔎 Search</a>
+    </div>
+</nav>
+
+    <main>
+        <h2>📊 Comprehensive Data Overview</h2>
+
+        <div th:if="${#maps.isEmpty(Data)}" class="no-stores-message">
+            <p>No stores or employee data found. Please add stores and employees first!</p>
+            <a th:href="@{/add-store-form}" class="toggle-btn" style="margin-top: 1rem; display: inline-block;">Add New Store</a>
+            <a th:href="@{/add-employee-form}" class="toggle-btn" style="margin-top: 1rem; display: inline-block; background-color: #f0ad4e;">Add New Employee</a>
+        </div>
+
+		<div th:unless="${#maps.isEmpty(Data)}">
+		    <div th:each="entry : ${Data}" class="data-card">
+		        <h3 class="store-name" th:text="${entry.key.name}">Store Name</h3>
+		
+		        <div class="store-details-content">
+		            <div class="store-info-grid">
+		                <div class="info-item">
+		                    <strong>Store ID:</strong>
+		                    <span th:text="${entry.key.id}"></span>
+		                </div>
+		                <div class="info-item">
+		                    <strong>Manager:</strong>
+		                    <span th:text="${entry.key.manager}"></span>
+		                </div>
+		                <div class="info-item">
+		                    <strong>Location:</strong>
+		                    <span th:text="${entry.key.location}"></span>
+		                </div>
+		                <div class="info-item">
+		                    <strong>Theme:</strong>
+		                    <span th:text="${entry.key.theme}"></span>
+		                </div>
+		                <div class="info-item">
+		                    <strong>Employee Count:</strong>
+		                    <span th:text="${#lists.size(entry.value)}"></span>
+		                </div>
+		                <div class="info-item actions">
+		                    <a th:href="@{/edit-store/{id}(id=${entry.key.id})}" class="edit-btn">✏️ Edit</a>
+		                    <a th:href="@{/delete-store/{id}(id=${entry.key.id})}" class="delete-btn" onclick="return confirm('Deleting this Store will also Delete the Employees Associated with the Said Store. Continue?');">🗑️ Delete</a>
+		                </div>
+		            </div>
+		
+		            <details>
+		                <summary>
+		                    Employees for <span th:text="${entry.key.name}"></span>
+		                </summary>
+		
+		                <div th:if="${#lists.isEmpty(entry.value)}" class="no-employees-message">
+		                    No employees assigned to this store yet.
+		                    <br>
+								<a th:href="@{/add-employee-form}" class="edit-btn" style="margin-left: 2rem; margin: 1rem;">👨‍💻 Add Employee</a>
+		                </div>
+		
+		                <div th:unless="${#lists.isEmpty(entry.value)}" class="employee-table-container">
+		                    <table class="employee-table">
+		                        <thead>
+		                            <tr>
+		                                <th>ID</th>
+		                                <th>Name</th>
+		                                <th>Role</th>
+		                                <th>Shift Date</th>
+		                                <th>Shift Time</th>
+		                                <th>Hourly Rate</th>
+		                                <th>Actions</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                            <tr th:each="emp : ${entry.value}">
+		                                <td th:text="${emp.employeeId}"></td>
+		                                <td th:text="${emp.name}"></td>
+		                                <td th:text="${emp.role}"></td>
+		                                <td th:text="${emp.shiftDate}"></td>
+		                                <td th:text="${emp.shiftStartTime} + ' - ' + ${emp.shiftEndTime}"></td>
+		                                <td th:text="'$' + ${emp.hourlyRate}"></td>
+		                                <td class="actions">
+		                                    <a th:href="@{/edit-employee/{id}(id=${emp.employeeId})}" class="edit-btn">✏️ Edit</a>
+		                                    <a th:href="@{/delete-employee/{id}(id=${emp.employeeId})}" class="delete-btn" onclick="return confirm('Are you sure you want to delete this employee?');">🗑️ Delete</a>
+		                                </td>
+		                            </tr>
+		                        </tbody>
+		                    </table>
+		                </div>
+		            </details>
+		        </div>
+		    </div>
+		</div>
+    </main>
+
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-location">
+                <h3>HQ Location</h3>
+                <p>Nakama Plaza, 404 Otaku Lane, Tokyo-to, Japan</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Reach Out</h3>
+                <p>Email: <a href="mailto:support@animestorehub.com">support@animestorehub.com</a></p>
+                <p>Phone: <a href="tel:+8135551234">+81 3-5551-234</a></p>
+                <p>Follow us on <a href="#">Instagram</a> | <a href="#">X (Twitter)</a> | <a href="#">Discord</a></p>
+            </div>
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.1414946434145!2d139.6917064152587!3d35.6894875255899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b0aaf2e8f45%3A0x5c36a4f1d1c2c63a!2sTokyo!5e0!3m2!1sen!2sjp!4v1716226754409"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+        <p>© 2025 Anime Store Hub — Powered by Kultarn Singh & Java Beans</p>
+    </footer>
+</body>
+</html>

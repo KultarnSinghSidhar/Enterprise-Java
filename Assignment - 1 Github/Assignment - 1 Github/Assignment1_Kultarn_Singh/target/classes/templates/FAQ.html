@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>FAQ - Anime Event 2025</title>
+    <link rel="stylesheet" th:href="@{/Css/style.css}" />
+    <style>
+      details {
+        margin-bottom: 1rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+      summary {
+        font-weight: bold;
+        cursor: pointer;
+        list-style: none;
+        outline: none;
+      }
+      summary::marker {
+        display: none;
+      }
+      details summary::after {
+        content: " ▼";
+        float: right;
+      }
+      details[open] summary::after {
+        content: " ▲";
+      }
+      .about-container {
+        padding: 2rem 1rem;
+        max-width: 900px;
+        margin: 0 auto;
+        background: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      iframe {
+        border: none;
+        border-radius: 10px;
+        width: 90%;
+        height: 300px;
+        margin: 0 auto 2rem;
+        display: block;
+      }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Frequently Asked Questions</h1>
+</header>
+
+<nav>
+    <a th:href="@{/}">🏠 Home</a>
+    <a th:href="@{/register}">🎟️ Register Ticket</a>
+    <a th:href="@{/view-tickets}">🎫 View Tickets</a>
+    <a th:href="@{/about}">ℹ️ About</a>
+    <a th:href="@{/schedule}">📅 Schedule</a>
+    <a th:href="@{/faq}">❓ FAQ</a>
+    <a href="#footer-container">📞 Contact</a>
+</nav>
+
+<main>
+  <div class="about-container">
+
+    <section>
+        <h2>General Questions</h2>
+
+        <details open>
+            <summary>Where is the event located?</summary>
+            <p>At the Downtown Convention Center, Halls A & B, 123 Anime Street, Cityville.</p>
+        </details>
+
+        <details>
+            <summary>What are the event hours?</summary>
+            <p>Friday–Sunday, 10 AM to 10 PM.</p>
+        </details>
+
+        <details>
+            <summary>Is there parking available?</summary>
+            <p>Yes, onsite parking is available for $10/day, and nearby lots offer overflow parking.</p>
+        </details>
+
+        <details>
+            <summary>Are kids allowed?</summary>
+            <p>Yes! Kids under 12 get in free with a paying adult. Some late-night events are 18+ or 21+.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Tickets</h2>
+
+        <details>
+            <summary>Can I buy tickets at the door?</summary>
+            <p>Yes, but online pre-purchase is recommended to avoid long lines.</p>
+        </details>
+
+        <details>
+            <summary>Are there VIP passes?</summary>
+            <p>Yes! VIP passes include early access, reserved seating, and exclusive merch bundles.</p>
+        </details>
+
+        <details>
+            <summary>I lost my ticket email. What do I do?</summary>
+            <p>Check your spam folder. If you still can’t find it, contact support at tickets@animeevent2025.com.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Cosplay & Props</h2>
+
+        <details>
+            <summary>Are weapons or props allowed?</summary>
+            <p>Props must pass safety inspection. No real or functional weapons are permitted.</p>
+        </details>
+
+        <details>
+            <summary>Can I change costumes on-site?</summary>
+            <p>Yes, we have dedicated cosplay changing rooms and makeup stations.</p>
+        </details>
+
+        <details>
+            <summary>Can I enter the cosplay contest?</summary>
+            <p>Yes, sign-ups are open until noon on Saturday at the Cosplay Desk near the main entrance.</p>
+        </details>
+
+        <details>
+            <summary>Are group cosplays allowed?</summary>
+            <p>Absolutely! Just make sure the entire group registers together for the contest.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Food & Drinks</h2>
+
+        <details>
+            <summary>Can I bring outside food?</summary>
+            <p>Small snacks and water bottles are okay, but full meals or alcohol are not allowed.</p>
+        </details>
+
+        <details>
+            <summary>Are there food vendors onsite?</summary>
+            <p>Yes! We have a food court with Japanese street food, ramen, boba tea, and vegan options.</p>
+        </details>
+
+        <details>
+            <summary>Is there a water refill station?</summary>
+            <p>Yes, bring your own bottle — refill stations are located near restrooms and the main hall.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Lost & Found</h2>
+
+        <details>
+            <summary>I lost something at the event. What do I do?</summary>
+            <p>Visit the Lost & Found booth near the registration area or email lost@animeevent2025.com after the event.</p>
+        </details>
+
+        <details>
+            <summary>What if I lose my badge?</summary>
+            <p>Go to the Badge Help Desk. A reprint may cost a $10 fee with valid ID.</p>
+        </details>
+    </section>
+
+    <section>
+        <h2>Accessibility & Safety</h2>
+
+        <details>
+            <summary>Is the venue wheelchair accessible?</summary>
+            <p>Yes, all halls are fully accessible. Contact us in advance for specific accommodations.</p>
+        </details>
+
+        <details>
+            <summary>What should I do in case of emergency?</summary>
+            <p>Locate the nearest staff member or security guard. Emergency exits are clearly marked throughout the venue.</p>
+        </details>
+
+        <details>
+            <summary>Are service animals allowed?</summary>
+            <p>Yes, service animals are permitted. Please ensure they are properly identified.</p>
+        </details>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+    <div class="footer-container" id="footer-container">
+        <div class="footer-location">
+            <h3>Event Location</h3>
+            <p>Anime Hall, 123 Otaku Street, Toronto, ON, Canada</p>
+        </div>
+        <div class="footer-contact">
+            <h3>Get In Touch</h3>
+            <p>Email: <a href="mailto:info@animeevent2025.com">info@animeevent2025.com</a></p>
+            <p>Phone: <a href="tel:+14372622741">+1 437-262-2741</a></p>
+            <p>Follow us on <a href="#">Instagram</a> | <a href="#">Twitter</a> | <a href="#">TikTok</a></p>
+        </div>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.5395175191474!2d-79.38393468450653!3d43.65348167912179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d8c65ae1f5%3A0x8e9b2f6e3348f487!2sToronto!5e0!3m2!1sen!2sca!4v1716226754409" allowfullscreen="" loading="lazy"></iframe>
+    <p>&copy; 2025 Anime Event — Powered by Kultarn Singh & Japan</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 Anime Store Dashboard</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <style>
+        /* Internal CSS for Homepage */
+        .welcome-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: #e0f2f7; /* Light blue background */
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .welcome-section h2 {
+            color: #2c3e50; /* Darker blue for heading */
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-section p {
+            color: #555;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Additional sections for homepage */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background-color: #fdfdfd;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-bottom: 4px solid #4A90E2;
+        }
+
+        .info-card h3 {
+            color: #337ab7;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .info-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Anime Store Dashboard</h1>
+    </header>
+
+<nav>
+    <div class="nav-group">
+        <a th:href="@{/employees}">👨‍💼 View Employees</a>
+        <a th:href="@{/stores}">🏬 View Stores</a>
+        <a th:href="@{/view-all}">📊 View All</a>
+        <a th:href="@{/add-store-form}">➕ Add Store</a>
+        <a th:href="@{/add-employee-form}">👨‍💻 Add Employee</a>
+        <a th:href="@{/}">🏠 Home</a>
+        <a href="#footer-container">📞 Contact</a>
+    </div>
+    <div class="nav-group">
+        <a th:href="@{/h2-console}" target="_blank" rel="noopener noreferrer">🛠️ Console</a>
+        <a th:href="@{/test/employee}">🧪 Test Employee</a>
+        <a th:href="@{/test/store}">🧪 Test Store</a>
+        <a th:href="@{/search}">🔎 Search</a>
+    </div>
+</nav>
+
+    <main>
+        <div class="welcome-section">
+            <h2>Welcome to Your Anime Store Management Hub!</h2>
+            <p>Effortlessly manage your anime stores and their dedicated employees. Get a quick overview, add new data, and keep your operations smooth.</p>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>Store Management</h3>
+                <p>Add, view, and manage details for all your anime store locations. Keep track of managers and themes.</p>
+            </div>
+            <div class="info-card">
+                <h3>Employee Tracking</h3>
+                <p>Oversee your staff, including their roles, shifts, and hourly rates. Ensure proper allocation to stores.</p>
+            </div>
+            <div class="info-card">
+                <h3>Unified View</h3>
+                <p>Access a comprehensive overview of all stores and their respective employees, streamlining your analysis.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container" id="footer-container">
+            <div class="footer-location">
+                <h3>HQ Location</h3>
+                <p>Nakama Plaza, 404 Otaku Lane, Tokyo-to, Japan</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Reach Out</h3>
+                <p>Email: <a href="mailto:support@animestorehub.com">support@animestorehub.com</a></p>
+                <p>Phone: <a href="tel:+8135551234">+81 3-5551-234</a></p>
+                <p>Follow us on <a href="#">Instagram</a> | <a href="#">X (Twitter)</a> | <a href="#">Discord</a></p>
+            </div>
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.1414946434145!2d139.6917064152587!3d35.6894875255899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b0aaf2e8f45%3A0x5c36a4f1d1c2c63a!2sTokyo!5e0!3m2!1sen!2sjp!4v1716226754409"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+        <p>© 2025 Anime Store Hub — Powered by Kultarn Singh & Java Beans</p>
+    </footer>
+</body>
+</html>
